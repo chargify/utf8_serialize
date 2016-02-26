@@ -21,7 +21,7 @@ module ActiveRecord # :stopdoc:
           obj ||= object_class.new if object_class != Object
 
           obj
-        rescue *RESCUE_ERRORS
+        rescue ArgumentError, Psych::SyntaxError
           yaml
         end
       end
